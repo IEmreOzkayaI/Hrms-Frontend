@@ -1,3 +1,5 @@
+![Hrms](https://s3-us-west-1.amazonaws.com/files.delesign/wp-content/uploads/2018/06/Illustration-1.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
