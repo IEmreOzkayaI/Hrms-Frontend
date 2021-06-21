@@ -14,6 +14,7 @@ function App() {
       <div className="dash">
         <Dashboard></Dashboard>
       </div>
+
     </div>
   );
 }

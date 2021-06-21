@@ -1,54 +1,67 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobSeekerService from "../services/JobSeekerService";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import { Grid, GridColumn } from "semantic-ui-react";
+import LeftBar from "../layouts/LeftBar";
+import { Card, Icon, Image } from "semantic-ui-react";
 
 export default function JobSeekerList() {
   const [jobSeekers, setJobSeekers] = useState([]);
 
   useEffect(() => {
     let jobSeekerService = new JobSeekerService();
-    jobSeekerService.getJobSeeker().then((result) => setJobSeekers(result.data.data));
-  });
+    jobSeekerService
+      .getJobSeeker()
+      .then((result) => setJobSeekers(result.data.data));
+  }, []);
 
   return (
-    <div key="id">
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>SurName</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
+    <div>
+      <Grid>
+        <GridColumn width={3}>
+          <LeftBar />
+        </GridColumn>
+        <GridColumn width={13}>
           {jobSeekers.map((jobSeeker) => (
-            <Table.Row>
-              <Table.Cell>{jobSeeker.firstName}</Table.Cell>
-              <Table.Cell>{jobSeeker.lastName}</Table.Cell>
-              <Table.Cell>{jobSeeker.email}</Table.Cell>
-            </Table.Row>
+            <Card fluid>
+              <Card.Content>
+                {" "}
+                <Image
+                  src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+                  floated="left"
+                  size="mini"
+                />
+                <Card.Header textAlign="left">Programlama Dili</Card.Header>
+                <Card.Meta textAlign="left">
+                  <span className="companyname">
+                    {jobSeeker.firstName + " "}
+                    {jobSeeker.lastName}
+                  </span>
+                </Card.Meta>
+              </Card.Content>
+
+              <Card.Content>
+                <Card.Description textAlign="left">
+                  Matthew is a musician living in Nashville.Matthew is a
+                  musician living in Nashville.Matthew is a musician living in
+                  Nashville. Matthew is a musician living in Nashville.Matthew
+                  is a musician living in Nashville.Matthew is a musician living
+                  in Nashville. Matthew is a musician living in
+                  Nashville.Matthew is a musician living in Nashville.Matthew is
+                  a musician living in Nashville.
+                </Card.Description>
+              </Card.Content>
+
+              <Card.Content extra>
+                <small style={{ paddingRight: "94.5em" }}>
+                  {" "}
+                  <Icon name="mail" />
+                  {jobSeeker.email}
+                </small>
+              </Card.Content>
+            </Card>
           ))}
-        </Table.Body>
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan="3">
-              <Menu floated="right" pagination>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron left" />
-                </Menu.Item>
-                <Menu.Item as="a">1</Menu.Item>
-                <Menu.Item as="a">2</Menu.Item>
-                <Menu.Item as="a">3</Menu.Item>
-                <Menu.Item as="a">4</Menu.Item>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron right" />
-                </Menu.Item>
-              </Menu>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
-      </Table>
+        </GridColumn>
+      </Grid>
     </div>
   );
 }

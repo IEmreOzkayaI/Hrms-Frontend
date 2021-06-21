@@ -10,7 +10,7 @@ export default function SystemPersonnelList() {
     systemPersonnelService
       .getAllSystemPersonnel()
       .then((result) => setSystemPersonnel(result.data.data));
-  });
+  },[]);
 
   return (
     <div key="id">

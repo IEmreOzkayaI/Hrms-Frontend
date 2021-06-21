@@ -8,7 +8,7 @@ export default function CvList() {
   useEffect(() => {
     let cvService = new CvService();
     cvService.getAll().then((result) => setCvs(result.data.data));
-  });
+  },[]);
 
   return (
     <div key="id">

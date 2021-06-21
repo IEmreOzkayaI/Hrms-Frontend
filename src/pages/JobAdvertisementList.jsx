@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import { Grid, GridColumn } from "semantic-ui-react";
 import JobAdvertisementService from "../services/JobAdvertisementService";
+import LeftBar from "../layouts/LeftBar";
+import { Card, Icon, Image } from "semantic-ui-react";
 
 export default function JobAdvertisementList() {
-
   const [jobAdvertisements, setJobAdvertisement] = useState([]);
 
   useEffect(() => {
@@ -12,49 +13,69 @@ export default function JobAdvertisementList() {
     jobAdvertisementService
       .getJobAdvertisements()
       .then((result) => setJobAdvertisement(result.data.data));
-  });
+  }, []);
 
   return (
-    <div key="id">
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Company Name</Table.HeaderCell>
-            <Table.HeaderCell>Position Name</Table.HeaderCell>
-            <Table.HeaderCell>Open Positions</Table.HeaderCell>
-            <Table.HeaderCell>Last Date</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
+    <div>
+      <Grid>
+        <GridColumn width={3}>
+          <LeftBar />
+        </GridColumn>
+        <GridColumn width={13}>
           {jobAdvertisements.map((jobAdvertisement) => (
-            <Table.Row>
-              <Table.Cell>{jobAdvertisement.companyName}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.positionName}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.openPositions}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.lastDate}</Table.Cell>
-            </Table.Row>
+            <Card fluid>
+              <Card.Content>
+                {" "}
+                <Image
+                  src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+                  floated="left"
+                  size="mini"
+                />
+                <Card.Header textAlign="left">
+                  {jobAdvertisement.positionName}
+                </Card.Header>
+                <Card.Meta textAlign="left">
+                  <span className="companyname">
+                    {jobAdvertisement.companyName}
+                  </span>
+                </Card.Meta>
+              </Card.Content>
+
+              <Card.Content>
+                <Card.Description textAlign="left">
+                  Matthew is a musician living in Nashville.Matthew is a
+                  musician living in Nashville.Matthew is a musician living in
+                  Nashville. Matthew is a musician living in Nashville.Matthew
+                  is a musician living in Nashville.Matthew is a musician living
+                  in Nashville. Matthew is a musician living in
+                  Nashville.Matthew is a musician living in Nashville.Matthew is
+                  a musician living in Nashville.
+                </Card.Description>
+              </Card.Content>
+
+              <Card.Content extra > 
+                <small style={{paddingRight:"32.5em"}} >
+                  {" "}
+                  <Icon name="user" />
+                  {jobAdvertisement.openPositions} Kişi{" "}
+                </small>
+                <small style={{padding:"center"}}>
+
+                <Icon name="calendar check" />
+                {jobAdvertisement.releaseDate}
+                </small>
+
+                <small style={{paddingLeft:"32.5em"}}>
+
+                <Icon name="calendar check" />
+                {jobAdvertisement.lastDate}
+                </small>
+
+              </Card.Content>
+            </Card>
           ))}
-        </Table.Body>
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan="4">
-              <Menu floated="right" pagination>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron left" />
-                </Menu.Item>
-                <Menu.Item as="a">1</Menu.Item>
-                <Menu.Item as="a">2</Menu.Item>
-                <Menu.Item as="a">3</Menu.Item>
-                <Menu.Item as="a">4</Menu.Item>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron right" />
-                </Menu.Item>
-              </Menu>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
-      </Table>
+        </GridColumn>
+      </Grid>
     </div>
   );
 }
