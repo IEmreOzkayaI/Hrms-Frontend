@@ -52,7 +52,7 @@ export default function JobSeekerList() {
               </Card.Content>
 
               <Card.Content extra>
-                <small style={{ paddingRight: "94.5em" }}>
+                <small style={{ paddingRight: "90.5em" }}>
                   {" "}
                   <Icon name="mail" />
                   {jobSeeker.email}

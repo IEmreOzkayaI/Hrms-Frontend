@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown, Menu,Image } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 
 export default function SignIn({signOut}) {
   return (
@@ -17,6 +18,7 @@ export default function SignIn({signOut}) {
           </Dropdown.Menu>
         </Dropdown>
       </Menu.Item>
+
     </div>
   );
 }

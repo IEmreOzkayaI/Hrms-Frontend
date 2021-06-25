@@ -15,5 +15,9 @@ export default class JobAdvertisementService{
     getJobAdvertisementIsActiveTrueOrderByReleaseDate(){
         return axios.get("http://localhost:8080/api/jobAdvertisement/findJobAdvertisementIsActiveTrueOrderByReleaseDate")
     }
+    add(id,id2,jobAdvertisement,id3,id4,id5){
+        let result = axios.post("http://localhost:8080/api/jobAdvertisement/add?cityId=&employerId=&jobPositionId=&jobTimeId=&jobTypeId="+id,+id2,+jobAdvertisement,+id3,+id4,+id5);
+        return result
+    }
     
 }

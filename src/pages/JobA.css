@@ -1,0 +1,80 @@
+.inputs{
+     border-radius: 5px;
+     display: block;
+     width: 97%;
+     margin: 0.5em auto;
+     height: 3vh;
+     padding-left: 0.5em;
+}
+.label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    display: block;
+    text-align: justify;
+    margin: auto 2rem;
+}
+
+.header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+}
+.textarea{
+    border-radius: 10px;
+     display: block;
+     width: 97%;
+     margin: 0.5em auto;
+     height: 10vh;
+}
+button {
+    width: 100%;
+    display: block;
+    padding: 8px 12px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #185a9d;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 17px;
+    font-weight: 5s00;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+  }
+.form {
+    flex: 1 50%;
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    padding: 90px 70px;
+    font-size: 15px;
+    color: #3f3f40;
+    background: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+.container {
+    width: 90%;
+    height: 80%;
+    margin: 70px auto;
+    display: flex;
+    border-radius: 10px;
+    background: #4745a9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #4745a9
+      #4745a9,
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #4745a9
+      #4745a9,
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .brand-box {
+    flex: 1 50%;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
