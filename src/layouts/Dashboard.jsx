@@ -1,14 +1,14 @@
 import React from "react";
 import JobAdvertisementList from "../pages/JobAdvertisementList";
-import JobSeekerList from "../pages/JobSeekerList";
+import JobSeekerList from "../pages/JobSeeker/JobSeekerList";
 import Home from "../pages/Home";
 import { Grid } from "semantic-ui-react";
-import CvList from "../pages/CvList";
-import EmployerList from "../pages/EmployerList";
-import SystemPersonnelList from "../pages/SystemPersonnelList";
+import CvList from "../pages/JobSeeker/CvList";
+// import EmployerList from "../pages/Employer/EmployerList";
+import SystemPersonnelList from "../pages/Personnel/SystemPersonnelList";
 import { Route } from "react-router-dom";
-import Deneme from "../pages/Deneme";
-import JobAdvertisementAdd from "../pages/JobAdvertisementAdd";
+import JobAdvAdd from "../pages/Employer/JobAdvAdd";
+import JobAdvertisementConfirmation from "../pages/Personnel/JodAdvertisementConfirmation"
 
 export default function Dashboard() {
   return (
@@ -19,11 +19,12 @@ export default function Dashboard() {
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route path="/cvs" component={CvList} />
-            <Route path="/employers" component={EmployerList} />
+            {/* <Route path="/employers" component={EmployerList} /> */}
             <Route path="/jobAdvertisement" component={JobAdvertisementList} />
             <Route path="/jobSeekers" component={JobSeekerList} />
             <Route path="/systemPersonnels" component={SystemPersonnelList} />
-            <Route path="/jobAdvertisementAdd" component={JobAdvertisementAdd} />
+            <Route path="/jobAdvertisementAdd" component={JobAdvAdd} />
+            <Route path="/jobAdvertisementConfirmation" component={JobAdvertisementConfirmation} />
 
 
           </Grid.Column>

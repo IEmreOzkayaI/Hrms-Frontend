@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Icon, Input, Menu } from "semantic-ui-react";
+import {Input, Menu } from "semantic-ui-react";
 import { Checkbox } from "semantic-ui-react";
 
 export default function LeftBar() {

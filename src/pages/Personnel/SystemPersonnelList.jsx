@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import CvService from "../services/CvService";
+import SystemPersonnelService from "../../services/SystemPersonnelService";
 import { Icon, Menu, Table } from "semantic-ui-react";
 
-export default function CvList() {
-  const [cvs, setCvs] = useState([]);
+export default function SystemPersonnelList() {
+  const [systemPersonnels, setSystemPersonnel] = useState([]);
 
   useEffect(() => {
-    let cvService = new CvService();
-    cvService.getAll().then((result) => setCvs(result.data.data));
+    let systemPersonnelService = new SystemPersonnelService();
+    systemPersonnelService
+      .getAllSystemPersonnel()
+      .then((result) => setSystemPersonnel(result.data.data));
   },[]);
 
   return (
@@ -15,20 +17,20 @@ export default function CvList() {
       <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Cv Id</Table.HeaderCell>
-            <Table.HeaderCell>Github</Table.HeaderCell>
-            <Table.HeaderCell>Linkedin</Table.HeaderCell>
-            <Table.HeaderCell>Biography</Table.HeaderCell>
+            <Table.HeaderCell width = "1" >Personel</Table.HeaderCell>
+            <Table.HeaderCell>Ad</Table.HeaderCell>
+            <Table.HeaderCell>Soyad</Table.HeaderCell>
+            <Table.HeaderCell>Email</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          {cvs.map((cv) => (
+          {systemPersonnels.map((systemPersonnel) => (
             <Table.Row>
-              <Table.Cell>{cv.id}</Table.Cell>
-              <Table.Cell>{cv.github}</Table.Cell>
-              <Table.Cell>{cv.linkedin}</Table.Cell>
-              <Table.Cell>{cv.biography}</Table.Cell>
+              <Table.Cell>-</Table.Cell>
+              <Table.Cell>{systemPersonnel.firstName}</Table.Cell>
+              <Table.Cell>{systemPersonnel.lastName}</Table.Cell>
+              <Table.Cell>{systemPersonnel.email}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

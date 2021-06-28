@@ -15,9 +15,25 @@ export default class JobAdvertisementService{
     getJobAdvertisementIsActiveTrueOrderByReleaseDate(){
         return axios.get("http://localhost:8080/api/jobAdvertisement/findJobAdvertisementIsActiveTrueOrderByReleaseDate")
     }
-    add(id,id2,jobAdvertisement,id3,id4,id5){
-        let result = axios.post("http://localhost:8080/api/jobAdvertisement/add?cityId=&employerId=&jobPositionId=&jobTimeId=&jobTypeId="+id,+id2,+jobAdvertisement,+id3,+id4,+id5);
+    add(jobAdvertisementAdd){
+        let result = axios.post("http://localhost:8080/api/jobAdvertisement/add",jobAdvertisementAdd)
         return result
     }
+
+    getByIsConfirm(){
+        return axios.get("http://localhost:8080/api/jobAdvertisement/findByIsConfirm")
+    }
     
+    update(jobAdvertisementAdd){
+        let result = axios.put("http://localhost:8080/api/jobAdvertisement/update",jobAdvertisementAdd)
+        return result
+    }
+
+    confirm(jobAdvertisementId){
+        return axios.put("http://localhost:8080/api/jobAdvertisement/confirmJobAdvertisement?id="+jobAdvertisementId)
+    }
+
+    delete(jobAdvertisementId){
+        return axios.delete("http://localhost:8080/api/jobAdvertisement/delete?id="+jobAdvertisementId)
+    }
 }

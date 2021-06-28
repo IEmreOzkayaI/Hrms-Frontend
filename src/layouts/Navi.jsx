@@ -12,12 +12,12 @@ export default function Navi() {
   const history =  useHistory()
 
 
-  function handleSignOut(params) {
+  function handleSignOut() {
     setIsAuthenticated(false)
     history.push("/home")
   }
 
-  function handleSignIn(params) {
+  function handleSignIn() {
     setIsAuthenticated(true)
   }
 

@@ -23,7 +23,7 @@ export default function JobAdvertisementList() {
         </GridColumn>
         <GridColumn width={13}>
           {jobAdvertisements.map((jobAdvertisement) => (
-            <Card fluid>
+            <Card fluid key={jobAdvertisement.id}>
               <Card.Content>
                 {" "}
                 <Image
@@ -32,24 +32,18 @@ export default function JobAdvertisementList() {
                   size="mini"
                 />
                 <Card.Header textAlign="left">
-                  {jobAdvertisement.positionName}
+                  {jobAdvertisement.jobPositionId?.positionName}
                 </Card.Header>
                 <Card.Meta textAlign="left">
                   <span className="companyname">
-                    {jobAdvertisement.companyName}
+                    {jobAdvertisement.employer?.companyName}
                   </span>
                 </Card.Meta>
               </Card.Content>
 
               <Card.Content>
                 <Card.Description textAlign="left">
-                  Matthew is a musician living in Nashville.Matthew is a
-                  musician living in Nashville.Matthew is a musician living in
-                  Nashville. Matthew is a musician living in Nashville.Matthew
-                  is a musician living in Nashville.Matthew is a musician living
-                  in Nashville. Matthew is a musician living in
-                  Nashville.Matthew is a musician living in Nashville.Matthew is
-                  a musician living in Nashville.
+                  {jobAdvertisement.jobDescription}
                 </Card.Description>
               </Card.Content>
 

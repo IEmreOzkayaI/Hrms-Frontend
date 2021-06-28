@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import JobSeekerService from "../services/JobSeekerService";
+import JobSeekerService from "../../services/JobSeekerService";
 import { Grid, GridColumn } from "semantic-ui-react";
-import LeftBar from "../layouts/LeftBar";
+import LeftBar from "../../layouts/LeftBar";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 export default function JobSeekerList() {
@@ -22,7 +22,7 @@ export default function JobSeekerList() {
         </GridColumn>
         <GridColumn width={13}>
           {jobSeekers.map((jobSeeker) => (
-            <Card fluid>
+            <Card fluid key={jobSeeker.id}>
               <Card.Content>
                 {" "}
                 <Image
